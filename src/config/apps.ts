@@ -15,8 +15,8 @@ import type { AppDefinition } from './types';
  * Leave `url` empty ('') until the application exists — the portal will
  * show a "Not configured" state instead of a broken link.
  *
- * These entries are the proposed starting catalog. None of them has a
- * URL yet, so none is presented as connected.
+ * These entries are the proposed starting catalog. Only apps with a real
+ * `url` are launchable; the rest show "Not configured".
  */
 export const APP_CATALOG: AppDefinition[] = [
   // ---------- Engineering & Construction ----------
@@ -107,7 +107,7 @@ export const APP_CATALOG: AppDefinition[] = [
     descriptionTh: 'ตรวจดูหน้างานก่อสร้างด้วยภาพมุมมอง 360 องศา',
     category: 'engineering',
     icon: 'rotate-3d',
-    url: '',
+    url: 'https://crystalengineeringcorporation.github.io/siteview-360/',
     status: 'available',
     openMode: 'new-tab',
   },
