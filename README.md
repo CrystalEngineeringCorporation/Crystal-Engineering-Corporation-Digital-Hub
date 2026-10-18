@@ -80,7 +80,7 @@ All applications are defined in **`src/config/apps.ts`**. The order of the array
 
 Set `url` to an absolute `https://…` address or a same-origin path such as `/projects/`. A path is resolved from the domain root, not from the GitHub Pages sub-path, so use full `https://` URLs on GitHub Pages. Only `http(s)` URLs and paths are accepted. Any other value (for example `javascript:`) is treated as an **Invalid URL** and is never opened. Do not put passwords, tokens or API keys in URLs.
 
-**Connected so far:** Crystal SiteView 360 (`https://crystalengineeringcorporation.github.io/siteview-360/`). The other 12 entries still have an empty `url` and show **Not configured**. Fill in each `url` as the real applications become available.
+**Connected so far:** Crystal SiteView 360, BOQ & Estimation and Html-Opener, all hosted under `https://crystalengineeringcorporation.github.io/`. The other 11 entries still have an empty `url` and show **Not configured**. Fill in each `url` as the real applications become available.
 
 ### In-browser Application Management (local demo)
 
@@ -129,7 +129,7 @@ A launch that succeeds is added to **Recently Used**. This covers new-tab, same-
 - **Notifications.** The panel shows an empty state.
 - **Overview figures.** *Total Projects* and *Pending Actions* show "—" and are labelled **Not connected**. *Active Applications* is calculated from the registry. *Recent Activities* counts launches made from this browser only.
 - **Syncing favorites and recents across devices.**
-- **The remaining 12 applications.** Only Crystal SiteView 360 is linked so far.
+- **The remaining 11 applications.** Only Crystal SiteView 360, BOQ & Estimation and Html-Opener are linked so far.
 
 ## Project structure
 
