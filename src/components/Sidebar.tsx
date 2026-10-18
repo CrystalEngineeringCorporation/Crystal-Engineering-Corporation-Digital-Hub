@@ -2,6 +2,7 @@ import { PanelLeftClose, PanelLeftOpen, X } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { getNavSections, getSettingsNav, type NavItem } from '../config/navigation';
 import { useI18n } from '../i18n/useI18n';
+import { asset } from '../lib/asset';
 import { useHub } from '../state/useHub';
 
 interface Props {
@@ -42,7 +43,7 @@ export function Sidebar({ collapsed, mobileOpen, onToggleCollapsed, onCloseMobil
         id="app-sidebar"
       >
         <div className="sidebar__brand">
-          <img src="/brand/logo-gold-on-navy.jpg" alt="Crystal Engineering Corporation" className="sidebar__logo" />
+          <img src={asset('brand/logo-gold-on-navy.jpg')} alt="Crystal Engineering Corporation" className="sidebar__logo" />
           <span className="sidebar__brand-sub">{t.brand.hub}</span>
           <button type="button" className="icon-btn sidebar__close" onClick={onCloseMobile} aria-label={t.nav.closeNav}>
             <X size={20} />

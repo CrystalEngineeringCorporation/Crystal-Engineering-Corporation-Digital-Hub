@@ -6,6 +6,7 @@ import { DirectoryView, type CategoryFilter } from '../components/DirectoryView'
 import { EmptyState } from '../components/EmptyState';
 import { StatCard } from '../components/StatCard';
 import { useI18n } from '../i18n/useI18n';
+import { asset } from '../lib/asset';
 import { isLaunchable } from '../lib/launcher';
 import { timeAgo } from '../lib/time';
 import { useHub } from '../state/useHub';
@@ -50,7 +51,7 @@ export function DashboardPage() {
             </Link>
           </div>
         </div>
-        <img className="hero__logo" src="/brand/logo-gold-on-navy.jpg" alt="" />
+        <img className="hero__logo" src={asset('brand/logo-gold-on-navy.jpg')} alt="" />
       </section>
 
       <section className="stats" aria-label={t.dashboard.overview}>

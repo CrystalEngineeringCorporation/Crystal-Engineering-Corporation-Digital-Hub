@@ -15,6 +15,21 @@ npm run lint
 
 The build is a static single-page app. When you deploy it, configure the web server to send unknown paths to `index.html`, so that deep links such as `/apps/engineering` load the app.
 
+## Deploy (GitHub Pages)
+
+Each push to `main` builds and publishes the site using `.github/workflows/deploy-pages.yml`.
+The site address is `https://<owner>.github.io/<repo-name>/`.
+
+One-time setup, done in the repository on GitHub:
+1. GitHub Free only offers Pages for **public** repositories. Paid plans also allow private ones.
+2. Go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+3. In the **Actions** tab, re-run the workflow, or push any commit.
+
+How the workflow handles the sub-path:
+- It builds with `BASE_PATH=/<repo-name>/`. Asset URLs and the router basename use this value through `src/lib/asset.ts`.
+- It copies `index.html` to `404.html`, so deep links still load the app. GitHub Pages returns HTTP 404 for those URLs, but the page works.
+- To host somewhere at the domain root instead, leave `BASE_PATH` unset.
+
 ## Logos
 
 | File | Use |
@@ -63,7 +78,7 @@ All applications are defined in **`src/config/apps.ts`**. The order of the array
 
 ### Configure an application's URL
 
-Set `url` to an absolute `https://…` address or a same-origin path such as `/projects/`. Only `http(s)` URLs and paths are accepted. Any other value (for example `javascript:`) is treated as an **Invalid URL** and is never opened. Do not put passwords, tokens or API keys in URLs.
+Set `url` to an absolute `https://…` address or a same-origin path such as `/projects/`. A path is resolved from the domain root, not from the GitHub Pages sub-path, so use full `https://` URLs on GitHub Pages. Only `http(s)` URLs and paths are accepted. Any other value (for example `javascript:`) is treated as an **Invalid URL** and is never opened. Do not put passwords, tokens or API keys in URLs.
 
 **All 13 starting entries have an empty `url`.** None of them is connected yet, and each shows **Not configured**. Fill in each `url` as the real applications become available.
 
